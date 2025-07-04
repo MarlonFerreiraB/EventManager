@@ -32,6 +32,10 @@ public class GerenciadorIDsReutilizaveis {
         return idVazio;
     }
 
+    public void LiberarId(int id){
+        IDsNulos.remove(id);
+    }
+
 
 
 
