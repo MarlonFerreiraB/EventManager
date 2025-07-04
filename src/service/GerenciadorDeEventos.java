@@ -1,6 +1,7 @@
 package service;
 
 import model.Evento;
+import model.GerenciadorIDsReutilizaveis;
 import model.Usuario;
 
 import java.util.*;
@@ -47,8 +48,10 @@ public class GerenciadorDeEventos {
     }
 
     public boolean removerUser(int id){
+        GerenciadorIDsReutilizaveis gerenciadorIDsReutilizaveis = new GerenciadorIDsReutilizaveis();
         if(usuarioList.containsKey(id)){
             usuarioList.remove(id);
+            gerenciadorIDsReutilizaveis.LiberarId(id);
             return true;
         }
         return false;
@@ -94,7 +97,7 @@ public class GerenciadorDeEventos {
     }
 
     public void  listarEventosOrdenadosPorCapacidade(){
-       eventosDisponiveis.values().stream().sorted(Comparator.comparing(Evento::getCapacidadeMax));
+       eventosDisponiveis.values().stream().sorted(Comparator.comparing(Evento::getCapacidadeMax)).forEach(System.out::println);
     }
 
     //Gestao da inscricao
