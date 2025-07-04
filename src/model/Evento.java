@@ -13,6 +13,7 @@ public class Evento {
     Set<Usuario> participantes;
 
     public Evento(String name, LocalDate localDate, int capacidadeMax) {
+        this.name = name;
         this.localDate = localDate;
         this.capacidadeMax = capacidadeMax;
         this.participantes = new HashSet<>();
@@ -45,5 +46,15 @@ public class Evento {
 
     public Set<Usuario> getParticipantes() {
         return participantes;
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Evento{");
+        sb.append("name='").append(name).append('\'');
+        sb.append(", localDate=").append(localDate);
+        sb.append(", capacidadeMax=").append(capacidadeMax);
+        sb.append('}');
+        return sb.toString();
     }
 }
